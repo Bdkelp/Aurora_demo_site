@@ -1474,6 +1474,65 @@ body[data-lang="en"] .lang-indicator::before {
   margin-bottom: 4px;
 }
 
+/* Exit Intent Message Styling */
+.exit-intent-message .message-bubble {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  border: 2px solid #fff;
+  box-shadow: 0 8px 24px rgba(238, 90, 111, 0.4);
+  animation: urgentPulse 2s ease-in-out infinite;
+}
+
+@keyframes urgentPulse {
+  0%, 100% { 
+    box-shadow: 0 8px 24px rgba(238, 90, 111, 0.4);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 12px 32px rgba(238, 90, 111, 0.6);
+    transform: scale(1.02);
+  }
+}
+
+.urgent-message {
+  animation: slideInBounce 0.6s ease-out;
+}
+
+@keyframes slideInBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(5px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.exit-benefits {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 12px;
+  border-radius: 8px;
+  margin: 12px 0;
+  backdrop-filter: blur(10px);
+}
+
+.exit-benefits p {
+  margin: 8px 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.exit-benefits strong {
+  color: #fff;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
 .message-time {
   font-size: 11px;
   color: var(--text-muted);

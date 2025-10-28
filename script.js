@@ -1700,3 +1700,185 @@ console.log('🚀 Aurora Script Loading - Version 2.0');
   }
 
 })();
+
+// ============================================
+// EXIT INTENT - AURORA GENIE INTERVENTION
+// ============================================
+(function() {
+  'use strict';
+
+  console.log('🚪 Exit Intent Module Loading');
+
+  let exitIntentShown = false;
+  let mouseY = 0;
+
+  // Track if user has already filled contact form
+  function hasUserEngaged() {
+    // Check if user has scrolled significantly or interacted with forms
+    const scrollDepth = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    return scrollDepth > 50 || sessionStorage.getItem('aurora_engaged') === 'true';
+  }
+
+  // Show Genie with exit intent message
+  function showExitIntentGenie() {
+    if (exitIntentShown || hasUserEngaged()) {
+      console.log('Exit intent already shown or user engaged');
+      return;
+    }
+
+    console.log('🧞 Triggering exit-intent Genie appearance');
+    exitIntentShown = true;
+    sessionStorage.setItem('aurora_exit_shown', 'true');
+
+    // Get the genie element
+    const genie = document.getElementById('aurora-genie');
+    if (!genie) {
+      console.error('Genie element not found');
+      return;
+    }
+
+    // Make sure genie is visible and animate in
+    genie.style.display = 'block';
+    genie.classList.add('genie-appearing');
+    
+    setTimeout(() => {
+      genie.classList.remove('genie-appearing');
+      genie.classList.add('genie-idle');
+    }, 600);
+
+    // Auto-open the chat with special exit-intent message
+    setTimeout(() => {
+      const chatWidget = document.getElementById('ai-chat-widget');
+      if (chatWidget) {
+        chatWidget.setAttribute('aria-hidden', 'false');
+        chatWidget.classList.add('chat-open');
+
+        // Add special exit-intent message
+        const messagesContainer = document.getElementById('chat-messages');
+        if (messagesContainer) {
+          // Clear any existing messages
+          messagesContainer.innerHTML = '';
+
+          // Add urgent exit-intent message
+          const exitMessage = document.createElement('div');
+          exitMessage.className = 'chat-message bot-message exit-intent-message';
+          exitMessage.innerHTML = `
+            <div class="message-avatar">🧞</div>
+            <div class="message-content">
+              <div class="message-bubble urgent-message">
+                <p><strong>⚠️ Wait! Before you go...</strong></p>
+                <p>I noticed you're about to leave! 😊</p>
+                <p>You're just one step away from transforming your online presence. Let one of our team members reach out with a free consultation!</p>
+                <div class="exit-benefits">
+                  <p><strong>✓</strong> Free 30-minute strategy call within 24 hours</p>
+                  <p><strong>✓</strong> Custom proposal for your needs</p>
+                  <p><strong>✓</strong> No obligation, no pressure</p>
+                </div>
+                <p style="margin-top: 1rem;"><strong>👇 Complete the contact form below and we'll be in touch!</strong></p>
+              </div>
+            </div>
+          `;
+          messagesContainer.appendChild(exitMessage);
+
+          // Scroll to the message
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Scroll to contact section
+        setTimeout(() => {
+          const contactSection = document.getElementById('contact');
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Focus on first form input
+            setTimeout(() => {
+              const firstInput = document.querySelector('#contact-form input[name="name"]');
+              if (firstInput) {
+                firstInput.focus();
+              }
+            }, 1000);
+          }
+        }, 1500);
+      }
+    }, 800);
+  }
+
+  // Detect mouse leaving viewport (exit intent)
+  function handleMouseLeave(e) {
+    mouseY = e.clientY;
+
+    // Trigger when mouse moves to top 50px of screen (trying to close tab/navigate away)
+    if (mouseY < 50 && !exitIntentShown) {
+      console.log('Exit intent detected at Y:', mouseY);
+      showExitIntentGenie();
+    }
+  }
+
+  // Detect mobile back button or tab switch
+  function handleVisibilityChange() {
+    if (document.hidden && !exitIntentShown && hasUserEngaged() === false) {
+      console.log('User switching tabs - marking for exit intent');
+      // Don't show immediately, but mark for showing when they come back
+      sessionStorage.setItem('aurora_show_on_return', 'true');
+    } else if (!document.hidden && sessionStorage.getItem('aurora_show_on_return') === 'true') {
+      sessionStorage.removeItem('aurora_show_on_return');
+      showExitIntentGenie();
+    }
+  }
+
+  // Track engagement
+  function trackEngagement() {
+    sessionStorage.setItem('aurora_engaged', 'true');
+  }
+
+  // Initialize exit intent detection
+  function initExitIntent() {
+    // Don't show if already shown in this session
+    if (sessionStorage.getItem('aurora_exit_shown') === 'true') {
+      exitIntentShown = true;
+      console.log('Exit intent already shown in this session');
+      return;
+    }
+
+    // Desktop: Mouse leave detection
+    document.addEventListener('mouseleave', handleMouseLeave);
+
+    // Mobile: Visibility change (tab switch, app switch)
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    // Track engagement events
+    const contactForm = document.getElementById('contact-form');
+    const onboardingBtn = document.getElementById('onboarding-btn');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', trackEngagement);
+      contactForm.addEventListener('input', trackEngagement);
+    }
+    
+    if (onboardingBtn) {
+      onboardingBtn.addEventListener('click', trackEngagement);
+    }
+
+    // Track scroll depth
+    let scrollTracked = false;
+    window.addEventListener('scroll', () => {
+      if (!scrollTracked) {
+        const scrollDepth = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        if (scrollDepth > 50) {
+          trackEngagement();
+          scrollTracked = true;
+        }
+      }
+    });
+
+    console.log('✅ Exit intent detection initialized');
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initExitIntent);
+  } else {
+    initExitIntent();
+  }
+
+})();
