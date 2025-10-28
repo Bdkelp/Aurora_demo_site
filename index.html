@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Modern single-page website template — fully styled with HTML, CSS & JavaScript." />
+  <meta name="keywords" content="web development, responsive design, modern websites, professional templates, Aurora template">
+  <meta name="author" content="Aurora Web Development">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Permissions Policy to suppress unload warning -->
+  <meta http-equiv="Permissions-Policy" content="unload=()">
+  
+  <title>Aurora — Modern Website Template</title>
+
+  <!-- SEO & social -->
+  <meta property="og:title" content="Aurora — Modern Website Template">
+  <meta property="og:description" content="A fully styled responsive website template built with HTML, CSS, and JavaScript.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomainhere.com/">
+  <meta property="og:site_name" content="Aurora">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aurora — Modern Website Template">
+  <meta name="twitter:description" content="A fully styled responsive website template built with HTML, CSS, and JavaScript.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aurora Web Development",
+    "url": "https://yourdomainhere.com",
+    "logo": "https://yourdomainhere.com/logo.png",
+    "description": "Modern web development services with performance, accessibility, and design excellence.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Business Street",
+      "addressLocality": "Indianapolis",
+      "addressRegion": "IN",
+      "postalCode": "46201",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-555-123-4567",
+      "contactType": "customer service",
+      "email": "hello@yourdomainhere.com"
+    },
+    "sameAs": [
+      "https://facebook.com/yourpage",
+      "https://twitter.com/yourhandle",
+      "https://linkedin.com/company/yourcompany",
+      "https://github.com/yourprofile"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Aurora Web Development",
+    "image": "https://yourdomainhere.com/business-photo.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Business Street",
+      "addressLocality": "Indianapolis",
+      "addressRegion": "IN",
+      "postalCode": "46201",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "39.7684",
+      "longitude": "-86.1581"
+    },
+    "telephone": "+1-555-123-4567",
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "$$"
+  }
+  </script>
+
+</head>
+<body class="light" data-theme="light">
+
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header / Nav -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="#hero" aria-label="Home — Aurora">Aurora<span class="dot">.</span></a>
+
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <button id="nav-toggle" class="nav-toggle" aria-controls="nav-list" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#about" data-i18n="nav_about">About</a></li>
+          <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+          <li><a href="#features" data-i18n="nav_features">Features</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><button id="lang-toggle" class="btn-icon" aria-pressed="false" title="Toggle language">🇬🇧 EN</button></li>
+          <li><button id="theme-toggle" class="btn-icon" aria-pressed="false" title="Toggle theme">🌙</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1 data-i18n="hero_title">Beautiful interfaces. Clean code. Fast interactions.</h1>
+        <p class="lead" data-i18n="hero_subtitle">A modern website template crafted with performance, accessibility, and delightful micro-interactions in mind.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#projects" data-i18n="hero_cta_projects">View Projects</a>
+          <a class="btn ghost" href="#contact" data-i18n="hero_cta_contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="hero-card" role="img" aria-label="Decorative image">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Workspace with laptop and plants" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <main id="main" class="main">
+
+    <!-- About -->
+    <section id="about" class="section container">
+      <div class="section-grid">
+        <div>
+          <h2 data-i18n="about_title">About Aurora</h2>
+          <p data-i18n="about_desc">We design and build modern web experiences using a minimal, pragmatic approach. Focus on content, accessibility, and performance — then add delightful micro-interactions. ✔️</p>
+          <ul class="stats">
+            <li><strong>50+</strong><span data-i18n="about_stats_projects">Projects</span></li>
+            <li><strong>10k+</strong><span data-i18n="about_stats_users">Users reached</span></li>
+            <li><strong>99.9%</strong><span data-i18n="about_stats_uptime">Uptime (simulated)</span></li>
+          </ul>
+        </div>
+
+        <div class="card feature-card">
+          <h3 data-i18n="about_card_title">Design system included</h3>
+          <p data-i18n="about_card_desc">Reusable components and consistent styling makes development faster and more maintainable.</p>
+          <a class="btn small" href="#features" data-i18n="about_card_cta">Learn more</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects / Gallery -->
+    <section id="projects" class="section container">
+      <h2 data-i18n="projects_title">Recent Projects</h2>
+      <p class="muted" data-i18n="projects_subtitle">A small selection of recent work — click to view.</p>
+
+      <div class="gallery" role="list">
+        <!-- gallery items -->
+        <figure class="gallery-item" tabindex="0" role="listitem" data-full="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" aria-label="Project — Dashboard UI">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Professional business dashboard with analytics and data visualization">
+          <figcaption data-i18n="project_dashboard">Dashboard UI</figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0" role="listitem" data-full="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" aria-label="Project — Mobile app">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Modern mobile application interface design">
+          <figcaption data-i18n="project_mobile">Mobile App</figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0" role="listitem" data-full="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" aria-label="Project — Marketing site">
+          <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Professional website design and development workspace">
+          <figcaption data-i18n="project_marketing">Marketing Site</figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0" role="listitem" data-full="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" aria-label="Project — Analytics">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business analytics dashboard with charts and performance metrics">
+          <figcaption data-i18n="project_analytics">Analytics</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section container">
+      <h2 data-i18n="features_title">Why choose this template?</h2>
+
+      <div class="features-grid">
+        <article class="feature">
+          <h3 data-i18n="feature_accessible_title">Accessible</h3>
+          <p data-i18n="feature_accessible_desc">Keyboard-friendly, semantic HTML, ARIA where needed, and high color contrast.</p>
+        </article>
+
+        <article class="feature">
+          <h3 data-i18n="feature_responsive_title">Responsive</h3>
+          <p data-i18n="feature_responsive_desc">Layouts adapt seamlessly across phones, tablets, and desktops.</p>
+        </article>
+
+        <article class="feature">
+          <h3 data-i18n="feature_performance_title">Performance-minded</h3>
+          <p data-i18n="feature_performance_desc">Optimized images, lazy loading, minimal JS and critical CSS patterns.</p>
+        </article>
+
+        <article class="feature">
+          <h3 data-i18n="feature_customize_title">Easy to customize</h3>
+          <p data-i18n="feature_customize_desc">Variables, component classes, and clear structure for rapid iteration.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section testimonials-section">
+      <div class="container">
+        <h2 data-i18n="testimonials_title">What our clients say</h2>
+        <p class="muted" data-i18n="testimonials_subtitle">Real feedback from satisfied customers who chose Aurora for their projects.</p>
+        
+        <div class="testimonials-grid">
+          <article class="testimonial-card" role="article">
+            <div class="testimonial-content">
+              <div class="stars" aria-label="5 out of 5 stars">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+              <blockquote data-i18n="testimonial_1_text">
+                "Aurora delivered exactly what we needed - a beautiful, fast website that our customers love. The attention to detail and performance optimization exceeded our expectations."
+              </blockquote>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face" alt="Michael Chen" class="author-avatar" loading="lazy">
+              <div class="author-info">
+                <cite class="author-name" data-i18n="testimonial_1_name">Michael Chen</cite>
+                <span class="author-title" data-i18n="testimonial_1_title">CEO, TechStart Inc.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card" role="article">
+            <div class="testimonial-content">
+              <div class="stars" aria-label="5 out of 5 stars">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+              <blockquote data-i18n="testimonial_2_text">
+                "Professional, reliable, and creative. Aurora transformed our online presence and helped us reach new customers. Highly recommended!"
+              </blockquote>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=64&h=64&fit=crop&crop=face" alt="Sarah Martinez" class="author-avatar" loading="lazy">
+              <div class="author-info">
+                <cite class="author-name" data-i18n="testimonial_2_name">Sarah Martinez</cite>
+                <span class="author-title" data-i18n="testimonial_2_title">Marketing Director, GrowthCo</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card" role="article">
+            <div class="testimonial-content">
+              <div class="stars" aria-label="5 out of 5 stars">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+              <blockquote data-i18n="testimonial_3_text">
+                "The team's expertise in modern web development really shows. Our site loads incredibly fast and looks amazing on every device."
+              </blockquote>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face" alt="David Park" class="author-avatar" loading="lazy">
+              <div class="author-info">
+                <cite class="author-name" data-i18n="testimonial_3_name">David Park</cite>
+                <span class="author-title" data-i18n="testimonial_3_title">Founder, InnovateTech</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Reviews Section -->
+    <section id="reviews" class="section reviews-section">
+      <div class="container">
+        <div class="reviews-content">
+          <div class="reviews-header">
+            <div class="google-logo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              <span>Google</span>
+            </div>
+            <h2 data-i18n="google_reviews_title">Verified Reviews</h2>
+            <p class="muted" data-i18n="google_reviews_subtitle">See what our clients are saying on Google</p>
+          </div>
+          
+          <div class="reviews-stats">
+            <div class="rating-display">
+              <div class="rating-number">4.9</div>
+              <div class="rating-stars">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+              <div class="rating-text" data-i18n="google_reviews_rating">4.9/5 based on 127+ reviews</div>
+            </div>
+            
+            <div class="reviews-cta">
+              <a href="https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review" target="_blank" rel="noopener" class="btn primary" data-i18n="google_reviews_cta">
+                View all reviews
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title" data-i18n="contact_title">Get in Touch</h2>
+        <p class="section-subtitle" data-i18n="contact_subtitle">Have a question or ready to start your project? We'd love to hear from you.</p>
+        
+        <!-- Contact Tabs -->
+        <div class="contact-tabs">
+          <div class="tabs-nav" role="tablist">
+            <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-message" data-i18n="contact_tab_message">
+              💬 Send Message
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-info" data-i18n="contact_tab_info">
+              📍 Get in Touch
+            </button>
+          </div>
+
+          <!-- Tab Panel 1: Contact Form -->
+          <div class="tab-panel active" id="tab-message" role="tabpanel">
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/xgvpaqlq" method="POST">
+              <input type="hidden" name="_subject" value="New contact from Aurora Website">
+              
+              <div class="form-row">
+                <label for="name" data-i18n="contact_name">Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                <span class="error" id="error-name"></span>
+              </div>
+
+              <div class="form-row">
+                <label for="email" data-i18n="contact_email">Email *</label>
+                <input type="email" id="email" name="email" required placeholder="you@example.com">
+                <span class="error" id="error-email"></span>
+              </div>
+
+              <div class="form-row">
+                <label for="phone" data-i18n="contact_phone">Phone (optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+              </div>
+
+              <div class="form-row">
+                <label for="message" data-i18n="contact_message">Message *</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project..."></textarea>
+                <span class="error" id="error-message"></span>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn primary" id="submit-btn">
+                  <span data-i18n="contact_submit">Send Message</span>
+                </button>
+              </div>
+            </form>
+
+            <div id="form-success" class="form-success" hidden>
+              <p data-i18n="contact_success">✓ Thank you! Your message has been sent successfully. We'll get back to you soon.</p>
+            </div>
+          </div>
+
+          <!-- Tab Panel 2: Contact Info -->
+          <div class="tab-panel" id="tab-info" role="tabpanel">
+            <div class="contact-info">
+              <div class="info-card">
+                <div class="info-icon">📧</div>
+                <h3 data-i18n="contact_email">Email</h3>
+                <p><a href="mailto:hello@aurora-templates.com">hello@aurora-templates.com</a></p>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">📱</div>
+                <h3 data-i18n="contact_phone">Phone</h3>
+                <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">🕐</div>
+                <h3 data-i18n="contact_hours">Business Hours</h3>
+                <p data-i18n="contact_hours_time">Mon-Fri 9AM-6PM EST</p>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">📍</div>
+                <h3 data-i18n="contact_location">Location</h3>
+                <p>New York, NY<br>United States</p>
+              </div>
+
+              <div class="info-card social-card">
+                <div class="info-icon">🌐</div>
+                <h3 data-i18n="contact_social_title">Follow Us</h3>
+                <div class="social-links">
+                  <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </a>
+                  <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="section cta-section">
+      <div class="container cta">
+        <div>
+          <h2 data-i18n="cta_title">Ready to start your project?</h2>
+          <p class="muted" data-i18n="cta_subtitle">Tell us about your idea and we'll help build it into something beautiful.</p>
+        </div>
+        <div class="cta-buttons">
+          <a class="btn primary large" href="#contact" data-i18n="cta_button">Contact Us</a>
+          <button class="btn secondary large" id="onboarding-btn" data-i18n="cta_onboarding">Start Onboarding Process</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Onboarding Modal -->
+    <div id="onboarding-modal" class="onboarding-modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-backdrop" id="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>🚀 Aurora Client Onboarding</h2>
+          <p>Complete Business Information Questionnaire</p>
+          <button class="modal-close" id="onboarding-close" aria-label="Close onboarding form">✕</button>
+        </div>
+        
+        <div class="onboarding-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" id="onboarding-progress"></div>
+          </div>
+          <span class="progress-text">Step <span id="current-step">1</span> of 6</span>
+        </div>
+
+        <form id="onboarding-form" class="onboarding-form" action="https://formspree.io/f/xgvpaqlq" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New Aurora Client Onboarding Submission">
+          <input type="hidden" name="form_type" value="client_onboarding">
+          
+          <!-- Step 1: Business Overview -->
+          <div class="onboarding-step active" data-step="1">
+            <h3>📋 Business Overview</h3>
+            
+            <div class="form-group">
+              <label for="ob-company">Company/Business Name *</label>
+              <input type="text" id="ob-company" name="company_name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="ob-industry">Primary Industry/Sector *</label>
+              <select id="ob-industry" name="industry" required>
+                <option value="">Select your industry...</option>
+                <option value="professional_services">Professional Services (Legal, Accounting, Consulting)</option>
+                <option value="technology">Technology/Software</option>
+                <option value="healthcare">Healthcare/Medical</option>
+                <option value="creative">Creative Agency/Design</option>
+                <option value="ecommerce">E-commerce/Retail</option>
+                <option value="real_estate">Real Estate</option>
+                <option value="education">Education/Training</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="nonprofit">Non-profit</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="ob-stage">Business Stage *</label>
+              <select id="ob-stage" name="business_stage" required>
+                <option value="">Select stage...</option>
+                <option value="startup">Startup (0-2 years)</option>
+                <option value="growing">Growing Business (2-5 years)</option>
+                <option value="established">Established Business (5+ years)</option>
+                <option value="enterprise">Enterprise/Corporation</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Primary Business Goals (Select all that apply)</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="goals" value="generate_leads">
+                  <span>Generate more leads/inquiries</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="goals" value="increase_sales">
+                  <span>Increase online sales</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="goals" value="build_credibility">
+                  <span>Build brand credibility</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="goals" value="showcase_work">
+                  <span>Showcase portfolio/work</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Brand & Design -->
+          <div class="onboarding-step" data-step="2">
+            <h3>🎨 Brand Identity & Design</h3>
+            
+            <div class="form-group">
+              <label for="ob-branding">Do you have existing brand materials?</label>
+              <select id="ob-branding" name="existing_brand">
+                <option value="">Select option...</option>
+                <option value="complete_guidelines">Complete brand guidelines</option>
+                <option value="logo_vector">Logo (vector format)</option>
+                <option value="logo_image">Logo (image only)</option>
+                <option value="color_palette">Color palette</option>
+                <option value="no_branding">No existing branding</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="ob-tagline">Company Tagline/Slogan</label>
+              <input type="text" id="ob-tagline" name="tagline" placeholder="Your memorable tagline">
+            </div>
+
+            <div class="form-group">
+              <label>Brand Personality (Select up to 3)</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="brand_personality" value="professional">
+                  <span>Professional & Corporate</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="brand_personality" value="modern">
+                  <span>Modern & Innovative</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="brand_personality" value="friendly">
+                  <span>Friendly & Approachable</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="brand_personality" value="premium">
+                  <span>Premium & Luxury</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="brand_personality" value="creative">
+                  <span>Creative & Artistic</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="brand_personality" value="trustworthy">
+                  <span>Trustworthy & Reliable</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ob-primary-color">Primary Brand Color</label>
+                <input type="text" id="ob-primary-color" name="primary_color" placeholder="#0ea5a4 or Blue">
+              </div>
+              <div class="form-group">
+                <label for="ob-secondary-color">Secondary Color</label>
+                <input type="text" id="ob-secondary-color" name="secondary_color" placeholder="#2563eb or Navy">
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Content & Messaging -->
+          <div class="onboarding-step" data-step="3">
+            <h3>📝 Content & Messaging</h3>
+            
+            <div class="form-group">
+              <label for="ob-mission">Mission Statement (1-2 sentences)</label>
+              <textarea id="ob-mission" name="mission" rows="3" placeholder="What your company does and why it matters..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="ob-unique-value">What makes your business unique?</label>
+              <textarea id="ob-unique-value" name="unique_value" rows="3" placeholder="What sets you apart from competitors..."></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ob-years">Years in Business</label>
+                <input type="number" id="ob-years" name="years_business" placeholder="5" min="0">
+              </div>
+              <div class="form-group">
+                <label for="ob-employees">Number of Employees</label>
+                <select id="ob-employees" name="employee_count">
+                  <option value="">Select...</option>
+                  <option value="solo">Just me (solo entrepreneur)</option>
+                  <option value="2-5">2-5 employees</option>
+                  <option value="6-20">6-20 employees</option>
+                  <option value="21-50">21-50 employees</option>
+                  <option value="50+">50+ employees</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ob-target-customer">Describe your ideal customer</label>
+              <textarea id="ob-target-customer" name="target_customer" rows="2" placeholder="Age range, job titles, pain points, etc."></textarea>
+            </div>
+          </div>
+
+          <!-- Step 4: Contact Information -->
+          <div class="onboarding-step" data-step="4">
+            <h3>📞 Contact Information</h3>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ob-phone">Primary Phone *</label>
+                <input type="tel" id="ob-phone" name="primary_phone" required placeholder="(555) 123-4567">
+              </div>
+              <div class="form-group">
+                <label for="ob-email">Primary Email *</label>
+                <input type="email" id="ob-email" name="primary_email" required placeholder="hello@yourcompany.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ob-address">Business Address</label>
+              <textarea id="ob-address" name="business_address" rows="2" placeholder="Street Address, City, State, ZIP"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="ob-website">Current Website (if any)</label>
+              <input type="url" id="ob-website" name="current_website" placeholder="https://yourcompany.com">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ob-facebook">Facebook</label>
+                <input type="url" id="ob-facebook" name="facebook" placeholder="https://facebook.com/yourpage">
+              </div>
+              <div class="form-group">
+                <label for="ob-linkedin">LinkedIn</label>
+                <input type="url" id="ob-linkedin" name="linkedin" placeholder="https://linkedin.com/company/yourcompany">
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5: Project Requirements -->
+          <div class="onboarding-step" data-step="5">
+            <h3>🔧 Project Requirements</h3>
+            
+            <div class="form-group">
+              <label>Essential Features (Select all required)</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="features" value="contact_form">
+                  <span>Contact form</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="features" value="appointment_booking">
+                  <span>Online appointment booking</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="features" value="quote_request">
+                  <span>Quote request system</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="features" value="newsletter">
+                  <span>Newsletter signup</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="features" value="blog">
+                  <span>Blog/news section</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="features" value="ecommerce">
+                  <span>E-commerce capabilities</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="features" value="multilanguage">
+                  <span>Multi-language support</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="features" value="testimonials">
+                  <span>Customer testimonials</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ob-launch-date">Desired Launch Date</label>
+              <input type="date" id="ob-launch-date" name="desired_launch">
+            </div>
+
+            <div class="form-group">
+              <label for="ob-budget">Budget Range (for additional services beyond Aurora template)</label>
+              <select id="ob-budget" name="budget">
+                <option value="">Select budget range...</option>
+                <option value="under_500">Under $500</option>
+                <option value="500_1500">$500 - $1,500</option>
+                <option value="1500_3000">$1,500 - $3,000</option>
+                <option value="3000_5000">$3,000 - $5,000</option>
+                <option value="5000_plus">$5,000+</option>
+                <option value="discuss">Discuss based on needs</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 6: Final Details -->
+          <div class="onboarding-step" data-step="6">
+            <h3>📝 Final Details</h3>
+            
+            <div class="form-group">
+              <label for="ob-special-requirements">Special Requirements or Industry-Specific Needs</label>
+              <textarea id="ob-special-requirements" name="special_requirements" rows="3" placeholder="Any compliance requirements, industry regulations, or special functionality needed..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>How will you measure website success?</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="success_metrics" value="increased_leads">
+                  <span>Increased leads/inquiries</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="success_metrics" value="more_calls">
+                  <span>More phone calls</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="success_metrics" value="higher_conversion">
+                  <span>Higher conversion rates</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="success_metrics" value="better_seo">
+                  <span>Better search engine rankings</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="success_metrics" value="online_sales">
+                  <span>Online sales growth</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="success_metrics" value="brand_perception">
+                  <span>Improved brand perception</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ob-questions">Additional Questions or Comments</label>
+              <textarea id="ob-questions" name="additional_questions" rows="3" placeholder="Anything else we should know about your business or website needs?"></textarea>
+            </div>
+
+            <div class="info-notice">
+              <p><strong>🎯 Next Steps:</strong> After submitting this form, we'll review your responses within 24 hours and schedule a 30-minute strategy call to discuss your Aurora customization options and finalize your project scope.</p>
+            </div>
+          </div>
+
+          <!-- Form Navigation -->
+          <div class="form-navigation">
+            <button type="button" class="btn btn-secondary" id="onboarding-prev" style="display: none;">← Previous</button>
+            <button type="button" class="btn btn-primary" id="onboarding-next">Next →</button>
+          </div>
+        </form>
+
+        <!-- Success & Next Steps Video -->
+        <div class="onboarding-step onboarding-success" data-step="success" style="display: none;">
+          <div class="success-content">
+            <div class="success-icon">🎉</div>
+            <h3>Onboarding Complete!</h3>
+            <p>Thank you for choosing Aurora! Your information has been submitted successfully.</p>
+            
+            <!-- AI-Generated Next Steps Video -->
+            <div class="next-steps-video">
+              <h4>📹 Watch: Your Next Steps (AI-Generated Guide)</h4>
+              <div class="video-container">
+                <div class="video-placeholder" id="ai-video-placeholder">
+                  <div class="video-play-btn" id="generate-video-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <span>Generate Personalized Video Guide</span>
+                  </div>
+                  <p class="video-description">
+                    Click to generate a personalized AI video explaining your next steps based on your onboarding responses.
+                  </p>
+                </div>
+                
+                <!-- Video will be inserted here after generation -->
+                <div class="generated-video" id="generated-video" style="display: none;">                    <video controls width="100%" poster="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                    <source id="video-source" src="" type="video/mp4">
+                    <p>Your browser doesn't support video playback. <a href="#" id="video-download">Download the video</a> instead.</p>
+                  </video>
+                  <div class="video-details">
+                    <h5>Personalized Next Steps</h5>
+                    <p>Based on your responses, this AI-generated video covers:</p>
+                    <ul id="video-topics">
+                      <!-- Topics will be populated based on form responses -->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Action Items -->
+            <div class="next-steps-actions">
+              <h4>📋 Immediate Action Items</h4>
+              <div class="action-checklist">
+                <label class="action-item">
+                  <input type="checkbox"> Review the project timeline in your email
+                </label>
+                <label class="action-item">
+                  <input type="checkbox"> Prepare brand assets (logo, colors, content)
+                </label>
+                <label class="action-item">
+                  <input type="checkbox"> Schedule your kick-off call
+                </label>
+                <label class="action-item">
+                  <input type="checkbox"> Download the Aurora style guide
+                </label>
+              </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="next-steps-contact">
+              <h4>📞 Need Help?</h4>
+              <p>Our team will contact you within 24 hours. For immediate questions:</p>
+              <div class="contact-options">
+                <a href="mailto:hello@aurora-templates.com" class="contact-btn">
+                  📧 Email Support
+                </a>
+                <a href="tel:+1-555-AURORA" class="contact-btn">
+                  📱 Call Us
+                </a>
+                <a href="#" class="contact-btn" id="schedule-call-btn">
+                  📅 Schedule Call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Chat Widget -->
+    <div id="ai-chat-widget" class="ai-chat-widget" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="chat-header">
+        <div class="chat-title">
+          <div class="aurora-ai-logo">🤖</div>
+          <div class="chat-info">
+            <h4>Aurora AI Assistant</h4>
+            <span class="chat-status online">Online • Always Available</span>
+          </div>
+        </div>
+        <button class="chat-minimize" id="chat-minimize" aria-label="Minimize chat">—</button>
+        <button class="chat-close" id="chat-close" aria-label="Close chat">✕</button>
+      </div>
+      
+      <div class="chat-messages" id="chat-messages">
+        <!-- Welcome message -->
+        <div class="message ai-message">
+          <div class="message-avatar">🤖</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p>👋 Hi! I'm Aurora AI, your personal business development assistant!</p>
+              <p><strong>I can help you with:</strong></p>
+              <ul>
+                <li>💼 Learn about our website services</li>
+                <li>💰 Get pricing and package details</li>
+                <li>🚀 Discover which plan fits your business</li>
+                <li>📞 Connect you with our team</li>
+                <li>📋 Start your onboarding process</li>
+                <li>❓ Answer any questions about Aurora</li>
+              </ul>
+              <p>What would you like to know?</p>
+            </div>
+            <div class="message-time">Just now</div>
+          </div>
+        </div>
+        
+        <!-- Quick action buttons -->
+        <div class="quick-actions">
+          <button class="quick-btn" data-action="pricing">💰 View Pricing</button>
+          <button class="quick-btn" data-action="demo">🎬 Book Demo</button>
+          <button class="quick-btn" data-action="contact">📞 Contact Us</button>
+          <button class="quick-btn" data-action="onboarding">🚀 Get Started</button>
+        </div>
+      </div>
+      
+      <div class="chat-input-area">
+        <div class="chat-input-container">
+          <input type="text" id="chat-input" placeholder="Ask me anything about Aurora..." maxlength="500" autocomplete="off">
+          <button id="chat-send" type="button" aria-label="Send message">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="chat-suggestions">
+          <button class="suggestion-btn" data-suggestion="What makes Aurora different?">What makes Aurora different?</button>
+          <button class="suggestion-btn" data-suggestion="How much does it cost?">How much does it cost?</button>
+          <button class="suggestion-btn" data-suggestion="How long to launch?">How long to launch?</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aurora Genie AI Assistant -->
+    <div id="aurora-genie" class="aurora-genie" aria-label="Aurora AI Genie Assistant">
+      <div class="genie-container">
+        <!-- Magic Lamp -->
+        <div class="magic-lamp" id="magic-lamp">
+          <div class="lamp-body">
+            <div class="lamp-shine"></div>
+            <div class="lamp-handle"></div>
+          </div>
+          <div class="magic-smoke" id="magic-smoke">
+            <div class="smoke-particle"></div>
+            <div class="smoke-particle"></div>
+            <div class="smoke-particle"></div>
+          </div>
+        </div>
+        
+        <!-- Genie Avatar -->
+        <div class="genie-avatar" id="genie-avatar" style="display: none;">
+          <div class="genie-head">
+            <div class="genie-face">
+              <div class="genie-eyes">
+                <div class="eye left-eye">
+                  <div class="pupil"></div>
+                </div>
+                <div class="eye right-eye">
+                  <div class="pupil"></div>
+                </div>
+              </div>
+              <div class="genie-mouth">
+                <div class="smile"></div>
+              </div>
+            </div>
+            <div class="genie-turban">
+              <div class="turban-jewel">💎</div>
+            </div>
+          </div>
+          <div class="genie-body">
+            <div class="genie-arms">
+              <div class="arm left-arm"></div>
+              <div class="arm right-arm"></div>
+            </div>
+            <div class="genie-tail">
+              <div class="tail-swirl"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Genie Speech Bubble -->
+        <div class="genie-speech" id="genie-speech" style="display: none;">
+          <div class="speech-bubble">
+            <p id="genie-message">🌟 Your wish is my command! I can help you build an amazing website!</p>
+          </div>
+          <div class="speech-tail"></div>
+        </div>
+        
+        <!-- Magical Effects -->
+        <div class="magic-effects" id="magic-effects">
+          <div class="sparkle sparkle-1">✨</div>
+          <div class="sparkle sparkle-2">⭐</div>
+          <div class="sparkle sparkle-3">✨</div>
+          <div class="sparkle sparkle-4">🌟</div>
+          <div class="sparkle sparkle-5">✨</div>
+        </div>
+        
+        <!-- Click to Chat Button -->
+        <button class="genie-chat-btn" id="genie-chat-btn" style="display: none;">
+          <span>💬 Chat with Aurora Genie</span>
+        </button>
+      </div>
+      
+      <!-- Position indicator (for teleportation) -->
+      <div class="teleport-indicator" id="teleport-indicator"></div>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>

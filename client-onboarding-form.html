@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aurora Client Onboarding Form</title>
+    <style>
+        /* Aurora Onboarding Form Styles */
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: "Inter", system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecf3 100%);
+            color: #0b1220;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(2,6,23,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #0ea5a4;
+        }
+        
+        .header h1 {
+            color: #0ea5a4;
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            color: #6b7280;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f9fafb;
+            border-radius: 12px;
+            border-left: 4px solid #0ea5a4;
+        }
+        
+        .section h2 {
+            color: #0b1220;
+            margin: 0 0 20px 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h3 {
+            color: #374151;
+            margin: 25px 0 15px 0;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="url"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0ea5a4;
+            box-shadow: 0 0 0 3px rgba(14, 165, 164, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .checkbox-item:hover {
+            background-color: rgba(14, 165, 164, 0.05);
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #0ea5a4;
+        }
+        
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 400;
+            cursor: pointer;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e5e7eb;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0ea5a4, #2563eb);
+            width: 10%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .submit-section {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #0ea5a4, #2563eb);
+            margin: 40px -40px -40px -40px;
+            border-radius: 0 0 16px 16px;
+        }
+        
+        .submit-btn {
+            background: white;
+            color: #0ea5a4;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .info-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+        
+        .info-box p {
+            margin: 0;
+            color: #1e40af;
+        }
+        
+        @media (max-width: 768px) {
+            .form-container { padding: 20px; }
+            .form-row, .form-row-3 { grid-template-columns: 1fr; }
+            .checkbox-group { grid-template-columns: 1fr; }
+            .header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="header">
+            <h1>🚀 Aurora Client Onboarding</h1>
+            <p>Complete Business Information Questionnaire</p>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <form id="onboardingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            
+            <!-- Section 1: Business Overview -->
+            <div class="section">
+                <h2>📋 Business Overview</h2>
+                
+                <h3>Basic Business Information</h3>
+                <div class="form-group">
+                    <label for="companyName">Company/Business Name *</label>
+                    <input type="text" id="companyName" name="company_name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Primary Industry/Sector *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="radio" id="industry1" name="industry" value="professional_services">
+                            <label for="industry1">Professional Services</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="industry2" name="industry" value="technology">
+                            <label for="industry2">Technology/Software</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="industry3" name="industry" value="healthcare">
+                            <label for="industry3">Healthcare/Medical</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="industry4" name="industry" value="creative">
+                            <label for="industry4">Creative Agency/Design</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="industry5" name="industry" value="ecommerce">
+                            <label for="industry5">E-commerce/Retail</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="industry6" name="industry" value="real_estate">
+                            <label for="industry6">Real Estate</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Business Stage *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="radio" id="stage1" name="business_stage" value="startup">
+                            <label for="stage1">Startup (0-2 years)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="stage2" name="business_stage" value="growing">
+                            <label for="stage2">Growing Business (2-5 years)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="stage3" name="business_stage" value="established">
+                            <label for="stage3">Established Business (5+ years)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="stage4" name="business_stage" value="enterprise">
+                            <label for="stage4">Enterprise/Corporation</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Target Audience</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="targetAge">Target Customer Age Range</label>
+                        <input type="text" id="targetAge" name="target_age" placeholder="e.g., 25-45">
+                    </div>
+                    <div class="form-group">
+                        <label for="targetIncome">Target Income Level</label>
+                        <input type="text" id="targetIncome" name="target_income" placeholder="e.g., $50,000-100,000">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="targetRole">Target Customer Job Title/Role</label>
+                    <input type="text" id="targetRole" name="target_role" placeholder="e.g., Small Business Owner, Marketing Manager">
+                </div>
+                
+                <div class="form-group">
+                    <label>Primary Business Goals (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="goal1" name="goals" value="generate_leads">
+                            <label for="goal1">Generate more leads/inquiries</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="goal2" name="goals" value="increase_sales">
+                            <label for="goal2">Increase online sales</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="goal3" name="goals" value="build_credibility">
+                            <label for="goal3">Build brand credibility</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="goal4" name="goals" value="showcase_work">
+                            <label for="goal4">Showcase portfolio/work</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section 2: Brand Identity -->
+            <div class="section">
+                <h2>🎨 Brand Identity & Design</h2>
+                
+                <h3>Existing Brand Assets</h3>
+                <div class="form-group">
+                    <label>Do you have existing brand materials?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="radio" id="brand1" name="existing_brand" value="complete_guidelines">
+                            <label for="brand1">Complete brand guidelines</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="brand2" name="existing_brand" value="logo_vector">
+                            <label for="brand2">Logo (vector format)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="brand3" name="existing_brand" value="logo_image">
+                            <label for="brand3">Logo (image only)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="brand4" name="existing_brand" value="no_branding">
+                            <label for="brand4">No existing branding</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Brand Personality (Select 3 that best describe your business)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="personality1" name="brand_personality" value="professional">
+                            <label for="personality1">Professional & Corporate</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="personality2" name="brand_personality" value="modern">
+                            <label for="personality2">Modern & Innovative</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="personality3" name="brand_personality" value="friendly">
+                            <label for="personality3">Friendly & Approachable</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="personality4" name="brand_personality" value="premium">
+                            <label for="personality4">Premium & Luxury</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="personality5" name="brand_personality" value="creative">
+                            <label for="personality5">Creative & Artistic</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="personality6" name="brand_personality" value="trustworthy">
+                            <label for="personality6">Trustworthy & Reliable</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Color Preferences</h3>
+                <div class="form-row-3">
+                    <div class="form-group">
+                        <label for="primaryColor">Primary Brand Color</label>
+                        <input type="text" id="primaryColor" name="primary_color" placeholder="#0ea5a4 or Blue">
+                    </div>
+                    <div class="form-group">
+                        <label for="secondaryColor">Secondary Color</label>
+                        <input type="text" id="secondaryColor" name="secondary_color" placeholder="#2563eb or Navy">
+                    </div>
+                    <div class="form-group">
+                        <label for="accentColor">Accent Color</label>
+                        <input type="text" id="accentColor" name="accent_color" placeholder="Optional">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section 3: Content & Messaging -->
+            <div class="section">
+                <h2>📝 Content & Messaging</h2>
+                
+                <div class="form-group">
+                    <label for="tagline">Company Tagline/Slogan</label>
+                    <input type="text" id="tagline" name="tagline" placeholder="Your memorable tagline">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mission">Mission Statement (1-2 sentences)</label>
+                    <textarea id="mission" name="mission" placeholder="What your company does and why it matters..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="uniqueValue">What makes your business unique? (Your competitive advantage)</label>
+                    <textarea id="uniqueValue" name="unique_value" placeholder="What sets you apart from competitors..."></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="yearsInBusiness">Years in Business</label>
+                        <input type="text" id="yearsInBusiness" name="years_business" placeholder="e.g., 5">
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeCount">Number of Employees</label>
+                        <select id="employeeCount" name="employee_count">
+                            <option value="">Select...</option>
+                            <option value="solo">Just me (solo entrepreneur)</option>
+                            <option value="2-5">2-5 employees</option>
+                            <option value="6-20">6-20 employees</option>
+                            <option value="21-50">21-50 employees</option>
+                            <option value="50+">50+ employees</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section 4: Contact Information -->
+            <div class="section">
+                <h2>📞 Contact Information</h2>
+                
+                <h3>Business Contact Details</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="primaryPhone">Primary Phone *</label>
+                        <input type="tel" id="primaryPhone" name="primary_phone" required placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="primaryEmail">Primary Email *</label>
+                        <input type="email" id="primaryEmail" name="primary_email" required placeholder="hello@yourcompany.com">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="businessAddress">Business Address</label>
+                    <textarea id="businessAddress" name="business_address" placeholder="Street Address, City, State, ZIP"></textarea>
+                </div>
+                
+                <h3>Social Media Accounts</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="facebook">Facebook URL</label>
+                        <input type="url" id="facebook" name="facebook" placeholder="https://facebook.com/yourpage">
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn URL</label>
+                        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/company/yourcompany">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="instagram">Instagram URL</label>
+                        <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/yourhandle">
+                    </div>
+                    <div class="form-group">
+                        <label for="twitter">Twitter URL</label>
+                        <input type="url" id="twitter" name="twitter" placeholder="https://twitter.com/yourhandle">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section 5: Project Requirements -->
+            <div class="section">
+                <h2>🔧 Project Requirements</h2>
+                
+                <div class="form-group">
+                    <label>Essential Features (Select all required)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature1" name="features" value="contact_form">
+                            <label for="feature1">Contact form</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature2" name="features" value="appointment_booking">
+                            <label for="feature2">Online appointment booking</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature3" name="features" value="quote_request">
+                            <label for="feature3">Quote request system</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature4" name="features" value="newsletter">
+                            <label for="feature4">Newsletter signup</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature5" name="features" value="blog">
+                            <label for="feature5">Blog/news section</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature6" name="features" value="ecommerce">
+                            <label for="feature6">E-commerce capabilities</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="desiredLaunch">Desired Launch Date</label>
+                    <input type="date" id="desiredLaunch" name="desired_launch">
+                </div>
+                
+                <div class="form-group">
+                    <label>Budget Range for additional services beyond Aurora template</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="radio" id="budget1" name="budget" value="under_500">
+                            <label for="budget1">Under $500</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="budget2" name="budget" value="500_1500">
+                            <label for="budget2">$500 - $1,500</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="budget3" name="budget" value="1500_3000">
+                            <label for="budget3">$1,500 - $3,000</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="budget4" name="budget" value="3000_5000">
+                            <label for="budget4">$3,000 - $5,000</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="budget5" name="budget" value="5000_plus">
+                            <label for="budget5">$5,000+</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section 6: Additional Information -->
+            <div class="section">
+                <h2>📝 Additional Information</h2>
+                
+                <div class="form-group">
+                    <label for="specialRequirements">Special Requirements or Industry-Specific Needs</label>
+                    <textarea id="specialRequirements" name="special_requirements" placeholder="Any compliance requirements, industry regulations, or special functionality needed..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="additionalQuestions">Questions or Concerns</label>
+                    <textarea id="additionalQuestions" name="additional_questions" placeholder="Anything else we should know about your business or website needs?"></textarea>
+                </div>
+                
+                <div class="info-box">
+                    <p><strong>Next Steps:</strong> After submitting this form, we'll review your responses and schedule a 30-minute strategy call to discuss your Aurora customization options and finalize your project scope.</p>
+                </div>
+            </div>
+            
+            <!-- Submit Section -->
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">Submit My Onboarding Form 🚀</button>
+                <p style="color: white; margin-top: 20px; opacity: 0.9;">
+                    Secure form submission • We'll respond within 24 hours
+                </p>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        // Progress bar functionality
+        const form = document.getElementById('onboardingForm');
+        const progressFill = document.getElementById('progressFill');
+        const sections = document.querySelectorAll('.section');
+        
+        function updateProgress() {
+            const totalFields = form.querySelectorAll('input[required], select[required]').length;
+            const filledFields = form.querySelectorAll('input[required]:valid, select[required]:valid').length;
+            const progress = Math.min((filledFields / totalFields) * 100, 100);
+            progressFill.style.width = progress + '%';
+        }
+        
+        // Update progress on input
+        form.addEventListener('input', updateProgress);
+        form.addEventListener('change', updateProgress);
+        
+        // Form submission handling
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting... ⏳';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual submission)
+            setTimeout(() => {
+                alert('Thank you! Your onboarding form has been submitted successfully. We\'ll contact you within 24 hours to schedule your strategy call.');
+                submitBtn.textContent = 'Form Submitted! ✅';
+            }, 2000);
+        });
+        
+        // Initialize progress
+        updateProgress();
+    </script>
+</body>
+</html>

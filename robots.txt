@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://yourdomainhere.com/sitemap.xml
+
+# Block access to certain file types for security and performance
+Disallow: /*.json$
+Disallow: /lang/
+Disallow: /*.log$
+
+# Allow all CSS and JS files for proper rendering
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.woff$
+Allow: /*.woff2$
+Allow: /*.ttf$
+Allow: /*.eot$
+Allow: /*.svg$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.webp$
+
+# Crawl-delay (optional, for large sites)
+# Crawl-delay: 1
