@@ -2054,7 +2054,7 @@ body[data-lang="en"] .lang-indicator::before {
   color: white;
   padding: 40px 30px;
   border-radius: 20px;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.95) 0%, rgba(124, 58, 237, 0.95) 100%);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.95) 0%, rgba(72, 16, 168, 0.95) 100%);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
@@ -2303,10 +2303,12 @@ body[data-lang="en"] .lang-indicator::before {
   visibility: hidden;
   transform: translateY(20px);
   transition: all 0.3s ease;
-  z-index: 999;
+  z-index: 998;
+  pointer-events: none;
 }
 
 .back-to-top.visible {
+  pointer-events: auto;
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -2319,6 +2321,11 @@ body[data-lang="en"] .lang-indicator::before {
 
 .back-to-top:active {
   transform: translateY(-1px);
+}
+
+/* Move back-to-top left when it would overlap with sticky Genie */
+body:has(.aurora-genie.sticky-mode) .back-to-top {
+  right: 90px;
 }
 
 /* Scroll Progress Indicator */
@@ -2441,6 +2448,7 @@ body[data-lang="en"] .lang-indicator::before {
   max-width: 350px;
   z-index: 1000;
   box-shadow: 0 8px 32px rgba(102, 51, 153, 0.3);
+  pointer-events: auto;
 }
 
 .aurora-genie.sticky-mode.minimized {
