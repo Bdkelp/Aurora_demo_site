@@ -2054,10 +2054,11 @@ body[data-lang="en"] .lang-indicator::before {
   color: white;
   padding: 30px 20px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .stat-item:hover {
@@ -2176,12 +2177,12 @@ body[data-lang="en"] .lang-indicator::before {
 .badge-text strong {
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-color);
+  color: #2d3748;
 }
 
 .badge-text span {
   font-size: 12px;
-  color: var(--text-secondary);
+  color: #718096;
 }
 
 /* FAQ Section */
