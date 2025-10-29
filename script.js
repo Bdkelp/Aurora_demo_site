@@ -1882,3 +1882,290 @@ console.log('🚀 Aurora Script Loading - Version 2.0');
   }
 
 })();
+
+// ========================================
+// PREMIUM FEATURES MODULE
+// ========================================
+(function() {
+  'use strict';
+
+  // ========================================
+  // FAQ Accordion
+  // ========================================
+  function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Toggle current item
+        if (isActive) {
+          item.classList.remove('active');
+          question.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+        }
+      });
+      
+      // Keyboard navigation
+      question.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          question.click();
+        }
+        
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const nextItem = item.nextElementSibling;
+          if (nextItem) {
+            nextItem.querySelector('.faq-question').focus();
+          }
+        }
+        
+        if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prevItem = item.previousElementSibling;
+          if (prevItem) {
+            prevItem.querySelector('.faq-question').focus();
+          }
+        }
+      });
+    });
+    
+    console.log('✅ FAQ accordion initialized');
+  }
+
+  // ========================================
+  // Statistics Counter
+  // ========================================
+  function initStatsCounter() {
+    const statItems = document.querySelectorAll('.stat-item');
+    let hasAnimated = false;
+    
+    function animateCounter(element, target, duration = 2000) {
+      const start = 0;
+      const startTime = performance.now();
+      
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function (ease-out)
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(start + (target - start) * easeOut);
+        
+        element.textContent = current;
+        
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          element.textContent = target;
+        }
+      }
+      
+      requestAnimationFrame(update);
+    }
+    
+    function checkVisibility() {
+      if (hasAnimated) return;
+      
+      const statsSection = document.querySelector('.stats-section');
+      if (!statsSection) return;
+      
+      const rect = statsSection.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+      
+      if (isVisible) {
+        hasAnimated = true;
+        
+        statItems.forEach(item => {
+          const numberElement = item.querySelector('.stat-number');
+          const target = parseInt(item.getAttribute('data-target'));
+          
+          animateCounter(numberElement, target);
+        });
+      }
+    }
+    
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility(); // Check on load
+    
+    console.log('✅ Statistics counter initialized');
+  }
+
+  // ========================================
+  // Back to Top Button
+  // ========================================
+  function initBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
+    
+    function toggleVisibility() {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    window.addEventListener('scroll', toggleVisibility);
+    toggleVisibility(); // Check on load
+    
+    console.log('✅ Back to top button initialized');
+  }
+
+  // ========================================
+  // Scroll Progress Indicator
+  // ========================================
+  function initScrollProgress() {
+    const progressBar = document.querySelector('.scroll-progress');
+    if (!progressBar) return;
+    
+    function updateProgress() {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight - windowHeight;
+      const scrolled = window.scrollY;
+      const progress = (scrolled / documentHeight) * 100;
+      
+      progressBar.style.width = progress + '%';
+      progressBar.setAttribute('aria-valuenow', Math.round(progress));
+    }
+    
+    window.addEventListener('scroll', updateProgress);
+    updateProgress(); // Set initial state
+    
+    console.log('✅ Scroll progress indicator initialized');
+  }
+
+  // ========================================
+  // Cookie Consent Banner
+  // ========================================
+  function initCookieConsent() {
+    const cookieBanner = document.getElementById('cookieConsent');
+    const acceptBtn = document.getElementById('cookieAccept');
+    const declineBtn = document.getElementById('cookieDecline');
+    
+    if (!cookieBanner) return;
+    
+    const COOKIE_KEY = 'aurora-cookie-consent';
+    
+    function setCookieConsent(value) {
+      localStorage.setItem(COOKIE_KEY, value);
+      cookieBanner.classList.remove('show');
+    }
+    
+    function checkConsent() {
+      const consent = localStorage.getItem(COOKIE_KEY);
+      
+      if (!consent) {
+        // Show banner after a short delay
+        setTimeout(() => {
+          cookieBanner.classList.add('show');
+        }, 1000);
+      }
+    }
+    
+    acceptBtn.addEventListener('click', () => {
+      setCookieConsent('accepted');
+      console.log('✅ Cookies accepted');
+    });
+    
+    declineBtn.addEventListener('click', () => {
+      setCookieConsent('declined');
+      console.log('⚠️ Cookies declined');
+    });
+    
+    checkConsent();
+    console.log('✅ Cookie consent banner initialized');
+  }
+
+  // ========================================
+  // Sticky Genie CTA
+  // ========================================
+  function initStickyGenie() {
+    const genie = document.querySelector('.aurora-genie');
+    if (!genie) return;
+    
+    let isSticky = false;
+    const heroSection = document.querySelector('.hero-section');
+    
+    function checkStickyState() {
+      if (!heroSection) return;
+      
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      const scrollPosition = window.scrollY;
+      
+      if (scrollPosition > heroBottom && !isSticky) {
+        // Transition to sticky mode
+        isSticky = true;
+        genie.classList.add('sticky-mode', 'minimized');
+        
+        // Add click handler to expand when minimized
+        const header = genie.querySelector('.genie-header');
+        header.addEventListener('click', expandGenie);
+        
+        console.log('📌 Genie entered sticky mode');
+      } else if (scrollPosition <= heroBottom && isSticky) {
+        // Return to normal mode
+        isSticky = false;
+        genie.classList.remove('sticky-mode', 'minimized');
+        
+        const header = genie.querySelector('.genie-header');
+        header.removeEventListener('click', expandGenie);
+        
+        console.log('📍 Genie returned to normal mode');
+      }
+    }
+    
+    function expandGenie() {
+      if (genie.classList.contains('minimized')) {
+        genie.classList.remove('minimized');
+      }
+    }
+    
+    window.addEventListener('scroll', checkStickyState);
+    checkStickyState(); // Check on load
+    
+    console.log('✅ Sticky Genie CTA initialized');
+  }
+
+  // ========================================
+  // Initialize All Premium Features
+  // ========================================
+  function init() {
+    initFAQ();
+    initStatsCounter();
+    initBackToTop();
+    initScrollProgress();
+    initCookieConsent();
+    initStickyGenie();
+    
+    console.log('🌟 All premium features initialized');
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
