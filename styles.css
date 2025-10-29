@@ -2054,18 +2054,18 @@ body[data-lang="en"] .lang-indicator::before {
   color: white;
   padding: 40px 30px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(20px);
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.95) 0%, rgba(124, 58, 237, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .stat-item:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-8px);
+  background: linear-gradient(135deg, rgba(147, 100, 255, 1) 0%, rgba(139, 92, 246, 1) 100%);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .stat-icon {
