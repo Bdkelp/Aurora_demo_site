@@ -2068,10 +2068,17 @@ body[data-lang="en"] .lang-indicator::before {
 }
 
 .stat-icon {
-  font-size: 48px;
   margin-bottom: 15px;
   display: inline-block;
   animation: bounce 2s infinite;
+  color: white;
+}
+
+.stat-icon svg {
+  width: 48px;
+  height: 48px;
+  stroke: white;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 @keyframes bounce {
@@ -2164,8 +2171,15 @@ body[data-lang="en"] .lang-indicator::before {
 }
 
 .badge-icon {
-  font-size: 32px;
   line-height: 1;
+  flex-shrink: 0;
+}
+
+.badge-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .badge-text {
@@ -2340,8 +2354,14 @@ body[data-lang="en"] .lang-indicator::before {
 }
 
 .cookie-icon {
-  font-size: 48px;
   flex-shrink: 0;
+}
+
+.cookie-icon svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .cookie-text {
